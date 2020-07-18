@@ -1,4 +1,4 @@
-# Performance Sprints
+# Performance Sprints :chart_with_upwards_trend:
 
 Basic front-end with `chart.js` for my performance measurement.
 
