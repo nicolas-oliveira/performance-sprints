@@ -87,4 +87,3 @@ tabs.map((e) => {
     eval(e.tab).style.backgroundColor = colors.inactive;
   });
 });
-

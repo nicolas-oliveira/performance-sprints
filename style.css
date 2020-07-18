@@ -74,3 +74,18 @@ p {
 .tabs p:hover {
   cursor: pointer;
 }
+@media only screen and (max-width: 900px) {
+  .app .content {
+    margin: 4em 20px;
+    padding: 0;
+  }
+  .app .content .box {
+    height: 50vh;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .app .content {
+    margin: 4em 0;
+    padding: 0;
+  }
+}
