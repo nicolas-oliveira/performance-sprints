@@ -1,4 +1,5 @@
 // Get all elements in DOM to render graph
+
 const sprintCharts = document.getElementById('sprintCharts');
 const gainCharts = document.getElementById('gainCharts');
 
@@ -20,22 +21,39 @@ const datagtx =  {
   gain: {
     labels: data.weeks,
     datasets: [{
-      label: 'Ganho',
+      type: 'bar',
+      label: 'Ganho relativo ao anterior',
       backgroundColor: '#ff2e31',
+      data: data.percentOfLast
+    },{
+      type: 'bar',
+      label: 'Ganho comparado com o maior',
+      backgroundColor: '#ff2e',
       data: data.percentOfHighest
     }]
-  }
+  },
 };
 
 // Initialize instace of Chart
 var chart = new Chart(gtxSprint, {
     type: 'line',
     data: datagtx.sprint,
-    options: {}
+    options: {
+      title: {
+        display: true,
+        text: "Rendimento em minutos por semana"
+      },
+
+    }
 });
 
 var chart = new Chart(gtxGain, {
   type: 'bar',
   data: datagtx.gain,
-  options: {}
+  options: {
+    title: {
+      display: true,
+      text: "Ganho de rendimento relativo"
+    },
+  }
 });

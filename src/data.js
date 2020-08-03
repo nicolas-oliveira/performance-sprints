@@ -8,15 +8,21 @@ let data = {
   get percentOfHighest() {
     const highest = Math.max.apply(null, sprints); // Math.max(...sprints); // ES6
     return this.sprints.map(function(n) {
-      return (((n - highest) / highest) * 100).toFixed(2);
+      return parseFloat((((n - highest) / highest) * 100).toFixed(2));
     });
   },
   // Get the gain of array with the last number, two by two
   // [120 130 140] => (130-120)/120 , (140-130)/130 => 0,083 , 0,076 => 8,3% , 7,6%
   get percentOfLast() {
-    return this.sprints.map(function(n){
-      
-    })
+    let calc = [0]; // Add inital value
+    for(var i = 0; i < this.sprints.length; i++) {
+      let percent = (this.sprints[i + 1] - this.sprints[i]) / this.sprints[i];
+      calc.push(
+        parseFloat((percent * 100).toFixed(2))
+      );
+    }
+    calc = calc.slice(0,this.sprints.length); // Remove NaN element
+    return calc;
   },
   // Get the number of sprints and create a string 'N°' for it
   get weeks() {
@@ -26,4 +32,5 @@ let data = {
   }
 };
 
+console.log(data.percentOfLast)
 console.log(data.percentOfHighest)
